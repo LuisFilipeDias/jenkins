@@ -14,8 +14,31 @@ class DB(object):
         the class of the database object.
     """
 
-    def __init__(self):
+    def __init__(self, database):
         """
             the initializer
         """
-        pass
+        self.connection = sqlite3.connect(database)
+
+    def insert(self, table, cols, vals):
+        """
+            insert value into row
+        """
+        # lets assume we will only have 2 columns, for simplification
+        assert len(cols) == len(vals) == 2
+        cursor = self.connection.cursor()
+        sql = "CREATE TABLE IF NOT EXISTS %s (%s, %s, added)" \
+              % (table, cols[0], cols[1])
+        cursor.execute(sql)
+        sql = "INSERT INTO %s (%s, %s, added) VALUES " \
+              "('%s','%s',CURRENT_TIMESTAMP)" \
+              % (table, cols[0], cols[1], vals[0], vals[1])
+        cursor.execute(sql)
+
+        self.connection.commit()
+
+        # We can also close the connection if we are done with it.
+        # Just be sure any changes have been committed or they will be lost.
+
+    def __del__(self):
+        self.connection.close()
