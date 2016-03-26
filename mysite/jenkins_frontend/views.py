@@ -8,7 +8,7 @@ def index(request):
 
 
 def list(request):
-    return render(request, 'jenkins_frontend/basic.html', {'content': ['List', 'list']})
+    return render(request, 'jenkins_frontend/basic.html',)
 
 
 def add(request):
