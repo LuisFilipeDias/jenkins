@@ -1,7 +1,15 @@
 {% extends "django_app/header.html" %}
 
 {% block content %}
-    {% for post in object_list %}
-    <h5>{{ post.added|date:"Y-m-d" }}<a href="/list/{{post.id}}"> {{post.name}}</a></h5>
-    {% endfor %}
+    <h4>
+        <ul>
+            {% for post in object_list %}
+                <li>
+                    <h3>
+                        <a href="/list/{{post.id}}"> {{post.name}}</a>
+                    </h3>
+                </li>
+            {% endfor %}
+        </ul>
+    </h4>
 {% endblock %}
