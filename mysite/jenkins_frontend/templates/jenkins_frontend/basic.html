@@ -1,5 +1,9 @@
 {% extends "jenkins_frontend/header.html" %}
 
 {% block content %}
-{% include "jenkins_frontend/includes/htmlsnippet.html" %}
+
+    {% for c in content %}
+        <p>{{c}}</p>
+    {% endfor %}
+
 {% endblock %}
