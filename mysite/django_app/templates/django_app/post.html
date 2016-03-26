@@ -1,0 +1,9 @@
+{% extends "django_app/header.html" %}
+
+{% block content %}
+
+    <h3>{{post.name}}</h3>
+    <h6>which was added on <b>{{post.added}}</b></h6>
+    has email <b>{{post.email}}</b>
+
+{% endblock %}

@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('jenkins_frontend', '0001_initial'),
+        ('django_app', '0001_initial'),
     ]
 
     operations = [
